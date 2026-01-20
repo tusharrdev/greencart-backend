@@ -11,8 +11,11 @@ import cartRouter from './routes/cartRoute.js';
 import addressRouter from './routes/addressRoute.js';
 import orderRouter from './routes/orderRouter.js';
 import { stripeWebhooks } from './controllers/orderController.js';
+import { PORT } from "./configs/index.js";
 
 const app = express();
+
+const port = PORT || 10000;
 
 await connectDB();
 await connectCloudinary();
@@ -24,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Allow multiple origins
-const allowedOrigins = ['https://greencart-frontend-ebkl.vercel.app/'];
+const allowedOrigins = ['https://greencart-frontend-ebkl.vercel.app'];
 
 // CORS configuration
 app.use(cors({
@@ -41,5 +44,8 @@ app.use('/api/cart', cartRouter);
 app.use('/api/address', addressRouter);
 app.use('/api/order', orderRouter);
 
-// Export the app to be used as a serverless function
-export default app;
+app.listen(port, () => {
+    console.log(
+        `Server running on https://greencart-backend-omega-pied.vercel.app`
+    );
+});
