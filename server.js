@@ -46,6 +46,6 @@ app.use('/api/order', orderRouter);
 
 app.listen(port, () => {
     console.log(
-        `Server running on https://greencart-backend-omega-pied.vercel.app`
+        `Server running on https://greencart-backend-omega-pied.vercel.app/api`
     );
 });
