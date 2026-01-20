@@ -13,7 +13,6 @@ import orderRouter from './routes/orderRouter.js';
 import { stripeWebhooks } from './controllers/orderController.js';
 
 const app = express();
-const port = process.env.PORT || 4000;
 
 await connectDB();
 await connectCloudinary();
@@ -42,8 +41,5 @@ app.use('/api/cart', cartRouter);
 app.use('/api/address', addressRouter);
 app.use('/api/order', orderRouter);
 
-// app.listen(port, () => {
-//     console.log(`Server is running on http://localhost:${port}`);
-// });
-
-module.exports=app
+// Export the app to be used as a serverless function
+export default app;
