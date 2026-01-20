@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Allow multiple origins
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['https://greencart-frontend-ebkl.vercel.app/'];
 
 // CORS configuration
 app.use(cors({
